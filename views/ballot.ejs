@@ -1,0 +1,83 @@
+<% include partials/header %>
+<% include partials/navbar %>
+  <meta id="ballot-add" content="<%=address%>"></meta>
+  <div class="container-fluid text-white">
+    <h1 id="welcome" style="color: #006266"></h1>
+    <p class="data" id="description"></p>
+    <p id="ballot-status" style="color: red;"></p>
+    <div class="row">
+      <div class="col-lg-8">
+          <table>
+            <tr>
+              <th colspan="2" class="tableCap">Ballot Information</th>
+            </tr>
+            <tr>
+              <th>Manage By</th>
+              <td class="data" id="owner"></td>
+            </tr>
+            <tr>
+              <th>Ballot Start At</th>
+              <td class="data" id="startTime"></td>
+            </tr>
+            <tr>
+              <th>Time to vote</th>
+              <td class="data" id="voteTime"></td>
+            </tr>
+            <tr>
+              <th>Total Tokens</th>
+              <td class="data" id="totalTokens"></td>
+            </tr>
+            <tr>
+              <th>Available Tokens</th>
+              <td class="data" id="balanceTokens"></td>
+            </tr>
+            <tr>
+              <th>Price Per Token</th>
+              <td class="data" id="tokenPrice"></td>
+            </tr>           
+          </table>
+      </div>
+
+      <div class="col-lg-4">
+          <p class="tableCap" id="userTokens">You own <span id="token-own"></span><span id="token-available"></span> is available to vote.</p>
+          <form>
+            <label style="width:120px;">Buy token</label>
+            <input type="text" id="ip-buy-tokens"/>
+            <button id="btn-buy-token" class="btn-primary">Buy</button>
+          </form>
+    
+          <p class="tableCap">Vote for candidate you like</p>
+          <form>          
+            <label style="width:120px;">Candidate Id</label>
+            <input type="text" id="ip-candidate-id"/>                  
+            <button id="btn-vote" class="btn-primary">Vote</button>
+          </form>
+      </div>
+    </div>
+
+    <div id="tb-wrapper">
+      <p class="tableCap text-center">List of Candidates</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Avatar</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Received Votes</th>
+            <th>You voted</th>
+          </tr>
+        </thead>
+        <tbody id="candidatesTb"></tbody>       
+      </table>
+    </div>
+    
+    <div id="ballot-owner" align="center">
+      <br>
+      <p>Your ballot hold <span id="ballot-balance" style="color:blue;"></span> wei</p>
+      <button id="btn-ballot-withdraw" class="btn btn-primary">Withdraw Ballot Money</button>
+    </div>
+
+  </div>
+
+  <script src="/javascripts/ballot.client.js"></script>
+<% include partials/footer %>
